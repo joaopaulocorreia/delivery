@@ -1,0 +1,28 @@
+<%# locals: (sign_in_form:) %>
+
+<%= form_with model: sign_in_form, url: sign_in_path, id: :sign_in_form do |form| %>
+  <div class='field'>
+    <label for="email" class='label'>email</label>
+    <div class='content'>
+      <%= form.email_field :email,
+        name: :email,
+        autofocus: true,
+        placeholder: 'enter your email',
+        value: form.object.email,
+        class: "input #{input_error_css(form.object.errors, :email)}" %>
+    </div>
+
+    <%= input_error_message(form.object.errors, :email) %>
+  </div>
+  <div class='field'>
+    <label for="email" class='label'>password</label>
+    <div class='content'>
+      <%= form.password_field :password,
+        name: :password,
+        placeholder: 'enter your password',
+        class: "input #{input_error_css(form.object.errors, :password)}" %>
+    </div>
+
+    <%= input_error_message(form.object.errors, :password) %>
+  </div>
+<% end %>

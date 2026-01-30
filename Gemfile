@@ -46,8 +46,8 @@ gem "dry-operation"
 
 gem "awesome_print"
 
-gem "app", path: "engines/app"
-gem "auth", path: "engines/auth"
+gem "app", path: "vendor/engines/app"
+gem "auth", path: "vendor/engines/auth"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
