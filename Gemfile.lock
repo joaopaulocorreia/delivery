@@ -90,7 +90,9 @@ GEM
     addressable (2.8.8)
       public_suffix (>= 2.0.2, < 8.0)
     ast (2.4.3)
+    awesome_print (1.9.2)
     base64 (0.3.0)
+    bcrypt (3.1.21)
     bcrypt_pbkdf (1.1.2)
     bigdecimal (4.0.1)
     bindex (0.8.1)
@@ -122,6 +124,17 @@ GEM
       reline (>= 0.3.8)
     dotenv (3.2.0)
     drb (2.2.3)
+    dry-core (1.2.0)
+      concurrent-ruby (~> 1.0)
+      logger
+      zeitwerk (~> 2.6)
+    dry-monads (1.9.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.1)
+      zeitwerk (~> 2.6)
+    dry-operation (1.0.1)
+      dry-monads (~> 1.6)
+      zeitwerk (~> 2.6)
     ed25519 (1.4.0)
     erb (6.0.1)
     erubi (1.13.1)
@@ -401,12 +414,15 @@ PLATFORMS
 DEPENDENCIES
   app!
   auth!
+  awesome_print
+  bcrypt (~> 3.1.7)
   bootsnap
   brakeman
   bundler-audit
   capybara
   cssbundling-rails
   debug
+  dry-operation
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
@@ -443,7 +459,9 @@ CHECKSUMS
   app (0.1.0)
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
   auth (0.1.0)
+  awesome_print (1.9.2) sha256=e99b32b704acff16d768b3468680793ced40bfdc4537eb07e06a4be11133786e
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
+  bcrypt (3.1.21) sha256=5964613d750a42c7ee5dc61f7b9336fb6caca429ba4ac9f2011609946e4a2dcf
   bcrypt_pbkdf (1.1.2) sha256=c2414c23ce66869b3eb9f643d6a3374d8322dfb5078125c82792304c10b94cf6
   bigdecimal (4.0.1) sha256=8b07d3d065a9f921c80ceaea7c9d4ae596697295b584c296fe599dd0ad01c4a7
   bindex (0.8.1) sha256=7b1ecc9dc539ed8bccfc8cb4d2732046227b09d6f37582ff12e50a5047ceb17e
@@ -460,6 +478,9 @@ CHECKSUMS
   debug (1.11.1) sha256=2e0b0ac6119f2207a6f8ac7d4a73ca8eb4e440f64da0a3136c30343146e952b6
   dotenv (3.2.0) sha256=e375b83121ea7ca4ce20f214740076129ab8514cd81378161f11c03853fe619d
   drb (2.2.3) sha256=0b00d6fdb50995fe4a45dea13663493c841112e4068656854646f418fda13373
+  dry-core (1.2.0) sha256=0cc5a7da88df397f153947eeeae42e876e999c1e30900f3c536fb173854e96a1
+  dry-monads (1.9.0) sha256=9348a67b5c862c7a876342dbd94737fdf3fb3c17978382cf6801a85b27215816
+  dry-operation (1.0.1) sha256=0d27cca6fcf87ab70d8f318db132158ee4610fd3886046af3c44a05a0b5ed8dc
   ed25519 (1.4.0) sha256=16e97f5198689a154247169f3453ef4cfd3f7a47481fde0ae33206cdfdcac506
   erb (6.0.1) sha256=28ecdd99c5472aebd5674d6061e3c6b0a45c049578b071e5a52c2a7f13c197e5
   erubi (1.13.1) sha256=a082103b0885dbc5ecf1172fede897f9ebdb745a4b97a5e8dc63953db1ee4ad9
