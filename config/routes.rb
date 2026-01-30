@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  constraints subdomain: "auth" do
+    mount Auth::Engine => "/"
+  end
+
   constraints subdomain: "app" do
     mount App::Engine => "/"
   end

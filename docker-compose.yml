@@ -4,7 +4,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.app.entrypoints=web"
-      - "traefik.http.routers.app.rule=Host(`app.delivery.localhost`) || Host(`backoffice.delivery.localhost`) || Host(`store.delivery.localhost`)"
+      - "traefik.http.routers.app.rule=Host(`app.delivery.localhost`) || Host(`backoffice.delivery.localhost`) || Host(`store.delivery.localhost`) || Host(`auth.delivery.localhost`)"
     build:
       context: .
       dockerfile: Dockerfile.dev

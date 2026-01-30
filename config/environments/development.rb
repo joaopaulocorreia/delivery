@@ -6,6 +6,7 @@ Rails.application.configure do
   config.hosts << "app.delivery.localhost"
   config.hosts << "backoffice.delivery.localhost"
   config.hosts << "store.delivery.localhost"
+  config.hosts << "auth.delivery.localhost"
 
   # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
