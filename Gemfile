@@ -43,6 +43,7 @@ gem "thruster", require: false
 gem "image_processing", "~> 1.2"
 
 gem "dry-operation"
+gem "dry-matcher"
 
 gem "awesome_print"
 

@@ -9,19 +9,18 @@ module Auth
     end
 
     def create
-      case auth_service.call(**sign_in_params)
-      in Dry::Monads::Success[ user ]
-        case session_create_service.call(user)
-        in Dry::Monads::Success
-          redirect_to redirect_to_target, alert: "SESSÂO CRIADA"
-        in Dry::Monads::Failure
-          redirect_to new_sign_in_path, alert: "ERRO AO CRIAR SESSÂO"
+      result = auth_service.call(**sign_in_params)
+      matcher.call(result) do |m|
+        m.success do
+          ap "OKOKOKOK"
         end
-      in Dry::Monads::Failure[ :sign_in_form_error, sign_in_form ]
-        @sign_in_form = sign_in_form
-        render :new, status: :unprocessable_entity
-      in Dry::Monads::Failure[ :incorrect_email_or_password ]
-        redirect_to new_sign_in_path, alert: "Try another email or password"
+
+        m.failure :sign_in_form_error do |sign_in_form|
+          @sign_in_form = sign_in_form
+          render :new, status: :unprocessable_entity
+        end
+
+        m.failure(:incorrect_email_or_password) { redirect_to new_sign_in_path, alert: "Try another email or password" }
       end
     end
 
